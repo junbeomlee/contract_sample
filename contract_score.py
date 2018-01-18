@@ -110,11 +110,15 @@ class UserScore(ScoreBase):
         new_index = self.__get_last_index() + 1
 
         input_contract = json.dumps(params)
-
+        
+        logging.debug(self.LOG_PREFIX + "jun1")
         self.__contract_db.Put(new_index, input_contract)
-
+        
+        logging.debug(self.LOG_PREFIX + "jun2")
         self.__contract_db.Put(self.LAST_INDEX_KEY, new_index)
 
+        logging.debug(self.LOG_PREFIX + "jun3")
+        
         for counterpart in params[self.COUNTERPARTIES]:
             counterpart_contracts = self.__user_db.Get(counterpart)
 

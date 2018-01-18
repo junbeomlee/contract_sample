@@ -136,7 +136,7 @@ class UserScore(ScoreBase):
         if last_index is None:
             last_index = 0
             self.__contract_db.Put(self.LAST_INDEX_KEY, last_index)
-        return last_index
+        return int(last_index)
 
     def approve(self, params):
         """ approve one contract

@@ -109,7 +109,7 @@ class UserScore(ScoreBase):
         input_contract = json.dumps(params)
 
 
-        self.__user_db.Put(input_contract["proposer"], params)
+        self.__user_db.Put(str(uuid.uuid4()), params)
 
         return {'code': 0}
 

@@ -65,7 +65,7 @@ class UserScore(ScoreBase):
         logging.debug(self.LOG_PREFIX + 'find ' + tx_method)
 
         if tx_method == "propose":
-            logging.debug(self.LOG_PREFIX + 'propose start')
+            logging.debug(self.LOG_PREFIX + 'propose start sfkosdkfosdfkodkf')
             self.propose(tx_data['params'])
             logging.debug(self.LOG_PREFIX + 'propose end')
             return None

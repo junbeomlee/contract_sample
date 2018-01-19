@@ -66,7 +66,7 @@ class UserScore(ScoreBase):
 
         if tx_method == "propose":
             logging.debug(self.LOG_PREFIX + 'propose start')
-            self.propose(tx_data['params'])
+            return self.propose(tx_data['params'])
         elif tx_method == "approve":
             self.approve(tx_data['params'])
         else:

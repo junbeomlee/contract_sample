@@ -110,28 +110,9 @@ class UserScore(ScoreBase):
         new_index = self.__get_last_index() + 1
         logging.debug(self.LOG_PREFIX + "jun0")
         input_contract = json.dumps(params)
-        
-        logging.debug(self.LOG_PREFIX + "jun1")
-        self.__contract_db.Put(new_index, input_contract)
-        
-        logging.debug(self.LOG_PREFIX + "jun2")
-        self.__contract_db.Put(self.LAST_INDEX_KEY, new_index)
 
-        logging.debug(self.LOG_PREFIX + "jun3")
-        
-        for counterpart in params[self.COUNTERPARTIES]:
-            counterpart_contracts = self.__user_db.Get(counterpart)
 
-            if counterpart_contracts is None:
-                counterpart_contracts = "[]"
-
-            contract_list = json.loads(counterpart_contracts)
-
-            contract_list.append(new_index)
-
-            input_contract_list = json.dumps(contract_list)
-
-            self.__user_db.Put(counterpart, input_contract_list)
+        self.__user_db.Put(input_contract["proposer"], params)
 
         return {'code': 0}
 

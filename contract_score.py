@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import json
 from os.path import dirname
-
+import uuid
 import logging
 
 from loopchain.blockchain import ScoreBase

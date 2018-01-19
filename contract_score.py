@@ -104,11 +104,6 @@ class UserScore(ScoreBase):
         :param params: {"proposer": , "counterparties": [counterparties], "content": "contract text", "quorum": "(int)quorum"}
         :return:
         """
-        params[self.APPROVERS] = [params[self.PROPOSER]]
-        logging.debug(self.LOG_PREFIX + str(params))
-
-        new_index = self.__get_last_index() + 1
-        logging.debug(self.LOG_PREFIX + "jun0")
         input_contract = json.dumps(params)
 
 
